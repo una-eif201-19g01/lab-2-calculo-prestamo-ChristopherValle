@@ -9,5 +9,9 @@
 #include <cstdint>
 #include <string>
 
+class CalculoPrestamo{
+    
+};
+
 
 #endif //CALCULOPRESTAMO_CALCULOPRESTAMO_H
