@@ -10,16 +10,19 @@
 #include <string>
 
 class CalculoPrestamo{
-private
-float monto;
-float obtenerPorcentaje(std::string porcentajeTXT){
-    int a = string porcentajeTXT.find(%);
-    
-    return std::st(substrg(0,a));}
-int calcularTiempoEnMeses(std::string tiempoTXT) {
-    int a = 
-    return 0;}
-float calcularInteresMensual(float balance, float tasaAnual){
+private:
+    float monto;
+    float obtenerPorcentaje(std::string porcentajeTXT){
+        int a = porcentajeTXT.find(%);
+        return  std::substr(0,a);}
+    int calcularTiempoEnMeses(std::string tiempoTXT) {
+        int a = tiempoTXT.find("A");
+        float b = std::stof(tiempoTXT);
+        if (a == 0)
+            return (b * 12);
+        
+        return (b);}
+    float calcularInteresMensual(float balance, float tasaAnual){
     return 0;}
 public
 CalculoPrestamo(){
