@@ -12,31 +12,16 @@
 class CalculoPrestamo{
 private:
     float monto;
-    float obtenerPorcentaje(std::string porcentajeTXT){
-        int a = porcentajeTXT.find(%);
-        return  std::substr(0,a);}
-    int calcularTiempoEnMeses(std::string tiempoTXT) {
-        int a = tiempoTXT.find("A");
-        float b = std::stof(tiempoTXT);
-        if (a == 0)
-            return (b * 12);
-        
-        return (b);}
-    float calcularInteresMensual(float balance, float tasaAnual){
-    return 0;}
-public
-CalculoPrestamo(){
-    monto = 0;            
-}
-CalculoPrestamo( int64_t ){
-    monto = 0;            
-}
-
-//std::string reporte = reporte + "Texto \n"
-
-    
-        
+    float obtenerPorcentaje(std::string porcentajeTXT);
+    int calcularTiempoEnMeses(std::string tiempoTXT);
+    float calcularTiempoEnMeses(std::string tiempoTXT);
+public:
+    CalculoPrestamo();
+    CalculoPrestamo(int64_t monto);
+    reporteCalculoPrestamo(std::string tiempoTXT, std::string porcentajeTXT);
+    float getMonto();
+    void setMonto();
 };
 
-
+    
 #endif //CALCULOPRESTAMO_CALCULOPRESTAMO_H
