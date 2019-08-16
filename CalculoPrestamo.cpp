@@ -1,21 +1,21 @@
 //
 // Created by Maikol Guzman  on 2019-08-08.
 //
-
+#include <string>
 #include <iostream>
 #include "CalculoPrestamo.h"
 
 class CalculoPrestamo{
 private:
     float monto;
-    float obtenerPorcentaje(std::string porcentajeTXT){
+    float CalculoPrestamo::obtenerPorcentaje(std::string porcentajeTXT){
         int a = porcentajeTXT.find("%");
         float porcentaje = std::stof(porcentajeTXT);
             if (a >= 0){
                 porcentaje = std::stof(porcentajeTXT.substr(0,a))/100;
                 return porcentaje;}
             else return porcentaje;}
-    int calcularTiempoEnMeses(std::string tiempoTXT) {
+    int CalculoPrestamo::calcularTiempoEnMeses(std::string tiempoTXT) {
         int findano = tiempoTXT.find("A");
         int findmes = tiempoTXT.find("M");
         int tiempo = 0;
@@ -27,19 +27,36 @@ private:
         else
             tiempo = std::stoi(tiempoTXT.substr(0,findmes));
             return tiempo;}
-    float calcularInteresMensual(float balance, float tasaAnual){
-    return 0;}
-public
+    float CalculoPrestamo::calcularInteresMensual(float balance, float tasaAnual){
+        float tasaMensual = tasaAnual / 12;
+        float interes = (tasaMensual * balance);
+        return interes;}
+public:
     calculoPrestamo(){
     monto = 0;
 }
  explicit calculoPrestamo( int64_t amt){
-    monto = amt;            
+    monto = amt;        
 }
- 
-
-//std::string reporte = reporte + "Texto \n"
-
-    
-        
+ std::string CalculoPrestamo::reporteCalculoPrestamo(std::string tiempoTXT, std::string porcentajeTXT){
+     std::string reporte = "Prestamo por mes: \n";
+     int tiempo = calcularTiempoEnMeses(tiempoTXT);
+     float porcentaje = obtenerPorcentaje(porcentajeTXT);
+     float balance = getMonto();
+     float nuevoBalence = getMonto();
+     float interesMensual = 0;
+     for(int mes = 0; mes < tiempo; ++mes){
+         interesMensual = calcularInteresMensual(nuevoBalence, porcentaje);
+         balance = nuevoBalence;
+         nuevoBalence = balance + interesMensual;
+         reporte = reporte + std::to_string(float balance) + " \n";
+        }
+     return reporte;
+    }
+    float CalculoPrestamo::getMonto(){
+        return monto;
+    }
+    void CalculoPrestamo::setMonto(float amt){
+        monto = amt;
+    }
 };
