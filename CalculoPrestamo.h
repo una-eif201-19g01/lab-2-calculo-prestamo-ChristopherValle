@@ -24,6 +24,5 @@ public:
     float getMonto();
     void setMonto(float amt);
 };
-
     
 #endif //CALCULOPRESTAMO_CALCULOPRESTAMO_H
