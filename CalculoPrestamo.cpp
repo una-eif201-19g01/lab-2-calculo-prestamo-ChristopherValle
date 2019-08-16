@@ -40,7 +40,6 @@
     }
 
 
-
     std::string CalculoPrestamo::reporteCalculoPrestamo(std::string tiempoTXT, std::string porcentajeTXT){
         std::string reporte = "Calcular Prestamo: \n";
         int tiempo = calcularTiempoEnMeses(tiempoTXT);
